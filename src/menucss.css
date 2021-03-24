@@ -1,9 +1,0 @@
-.menuContainer {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-}
-
-.menuItem {
-  display: flex;
-}

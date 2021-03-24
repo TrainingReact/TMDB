@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import './menucss.css'
+import './css/menucss.css'
+import './css/responsive.css'
 //import App from './App';
-import Menu from './componenti'
+import Header from './componenti'
 //import reportWebVitals from './reportWebVitals';
 
 /*ReactDOM.render(
@@ -21,7 +22,7 @@ reportWebVitals();
 
 ReactDOM.render(
  
-    <Menu />,
+    <Header />,
 
   document.getElementById('root')
 );
