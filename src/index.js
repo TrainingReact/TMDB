@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import './genericComponents/menucss.css'
-import './responsive/responsive.css'
+import './genericComponents/menucss.css';
+import './responsive/responsive.css';
+import './carousel/slider.css';
 import App from './App';
 
 import reportWebVitals from './reportWebVitals';

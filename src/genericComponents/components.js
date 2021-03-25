@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from '../pageComponents/home';
-import Film from '../pageComponents/film';
-import Serietv from '../pageComponents/tvseries';
+import Home from '../pageComponents/Home';
+import Film from '../pageComponents/Film';
+import Serietv from '../pageComponents/Tvseries';
 import logo from '../images/lg.png';
 
 
-//componente che contiene gli elementi da tenere in header
-export default function Header() {
+//page structure component
+export default function PageStructure() {
     return (
         <div>
             <UpperHeader />
@@ -17,7 +17,7 @@ export default function Header() {
     )
 }
 
-//componente relativo alla barra in alto (al momento la barra è vuota)
+//header bar elements component (now it is empty but you could use it to add social icons)
 export function UpperHeader() {
     return (
         <div className='logo'>
@@ -27,20 +27,22 @@ export function UpperHeader() {
 
 
 
-//componete che si occupa della gestione del menù e del cambio pagina
+//menu management component and routing management
 export function Menu() {
     return (
 
         <Router>
-            <nav className='xsmall-cell'>
-                <ul className='headerContainer menuContainer'>
-                    <li className='liMenu'><Link to="/" name='home'> <img className='immagineLogo' src={logo} alt='logo di ReactJS' title='logo di ReactJS' aria-labelledby='logo ReactJS' /></Link></li>
-                    <li className='liMenu'><Link className='menuItem' to="/" name='home'> Home</Link></li>
-                    <li className='liMenu'><Link className='menuItem' to="/film" name='film'>Film</Link></li>
-                    <li className='liMenu'><Link className='menuItem' to="/serieTV" name='serieTV'>Serie TV</Link></li>
-                    <li className='liMenu'></li>
-                </ul>
-            </nav>
+            <div className='menuBar'>
+                <nav>
+                    <ul className='headerContainer menuContainer'>
+                        <li className='liMenu'><Link to="/" name='home'> <img className='immagineLogo' src={logo} alt='logo di ReactJS' title='logo di ReactJS' aria-labelledby='logo ReactJS' /></Link></li>
+                        <li className='liMenu'><Link className='menuItem' to="/" name='home'> Home</Link></li>
+                        <li className='liMenu'><Link className='menuItem' to="/film" name='film'>Film</Link></li>
+                        <li className='liMenu'><Link className='menuItem' to="/serieTV" name='serieTV'>Serie TV</Link></li>
+                        <li className='liMenu'></li>
+                    </ul>
+                </nav>
+            </div>
             <Switch>
 
                 <Route exact path="/">

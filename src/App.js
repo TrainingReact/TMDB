@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Header from './genericComponents/components'
+import PageStructure from './genericComponents/Components';
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         </a>
       </header>
     </div>*/
-    <Header/>
+    <PageStructure/>
   );
 }
 
