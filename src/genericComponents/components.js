@@ -1,12 +1,16 @@
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from '../pageComponents/Home';
 import Film from '../pageComponents/Film';
 import Serietv from '../pageComponents/Tvseries';
 import logo from '../images/lg.png';
+import TopRatedContext from "./context"
 
 
 //page structure component
-export default function PageStructure() {
+export default function PageStructure(props) {
+    const name = useContext(TopRatedContext);
+    console.log(name)
     return (
         <div>
             <UpperHeader />
@@ -28,7 +32,7 @@ export function UpperHeader() {
 
 
 //menu management component and routing management
-export function Menu() {
+export function Menu(props) {
     return (
 
         <Router>

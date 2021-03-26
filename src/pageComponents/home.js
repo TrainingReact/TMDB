@@ -1,15 +1,30 @@
-import GetCarouselItems from '../carousel/Carousel';
+import CarouselContainer from '../carousel/Carousel';
+import React, { useEffect, useRef, useState, useContext } from 'react';
+import TopRated from '../movies/api/GetTopRated';
+import TopRatedContext from "../genericComponents/context";
 
 
+export default function Home(props) {
+    const [resp, setResp] = useState([]);
+    useEffect(() => {
+        const result = TopRated();
+        result.then(response => {
+            setResp(response.results);
+        })
+            .catch(error => {
+                console.log(error);
+            });
+    }, []);
 
-export default function Home() {
-    const topRated = 'https://api.themoviedb.org/3/movie/top_rated?api_key=f1789e999f6985421e42f9a8de9c434c&language=en-US&page=1';
     return (
+        <TopRatedContext.Provider value={resp}>
         <main>
             <h1>Top Rated</h1>
             <hr></hr>
-             <GetCarouselItems url={topRated}/>
+
+            <CarouselContainer />
         </main>
+        </TopRatedContext.Provider>
     );
 }
 
