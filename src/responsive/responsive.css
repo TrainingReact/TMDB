@@ -38,3 +38,15 @@
 	
 	  }
   }
+
+  
+  @media screen and (max-width: 400px) {
+	.carousel {
+	  flex-direction: column;
+	  overflow-y: scroll;
+	}
+	.buttons-container{
+	  display:none;
+	}
+  }
+  

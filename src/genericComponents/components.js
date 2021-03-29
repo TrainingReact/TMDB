@@ -1,16 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from '../pageComponents/Home';
 import Film from '../pageComponents/Film';
 import Serietv from '../pageComponents/Tvseries';
 import logo from '../images/lg.png';
-import TopRatedContext from "./context"
 
 
 //page structure component
-export default function PageStructure(props) {
-    const name = useContext(TopRatedContext);
-    console.log(name)
+export default function PageStructure() {
     return (
         <div>
             <UpperHeader />
@@ -63,4 +60,5 @@ export function Menu(props) {
 
     );
 }
+
 

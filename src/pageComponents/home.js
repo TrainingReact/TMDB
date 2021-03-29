@@ -1,15 +1,21 @@
-import CarouselContainer from '../carousel/Carousel';
-import React, { useEffect, useRef, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import TopRated from '../movies/api/GetTopRated';
-import TopRatedContext from "../genericComponents/context";
+import ActionsButtons from '../carousel/Carousel';
 
 
-export default function Home(props) {
+export default function Home() {
     const [resp, setResp] = useState([]);
     useEffect(() => {
         const result = TopRated();
         result.then(response => {
-            setResp(response.results);
+            const res = response.results.map(elem => {
+                //added index for carousel (see ActionsButtons in GenericComponent for more details)
+                return {
+                    ...elem,
+                    index: response.results.indexOf(elem)
+                }
+            })
+            setResp(res);
         })
             .catch(error => {
                 console.log(error);
@@ -17,14 +23,11 @@ export default function Home(props) {
     }, []);
 
     return (
-        <TopRatedContext.Provider value={resp}>
-        <main>
-            <h1>Top Rated</h1>
-            <hr></hr>
-
-            <CarouselContainer />
-        </main>
-        </TopRatedContext.Provider>
+            <main>
+                <h1>Top Rated</h1>
+                <hr></hr>
+                <ActionsButtons data={resp}/>
+            </main>
     );
 }
 

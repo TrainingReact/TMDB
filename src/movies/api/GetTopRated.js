@@ -1,6 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
-import {topRatedUrl} from '../constants/constants';
-const axios = require('axios');
+import {topRatedUrl} from '../constants/Constants';
 
 
 
@@ -12,6 +10,4 @@ export default async function TopRated() {
     } catch (error) {
         console.log(error);
     }
-
-  
 }
