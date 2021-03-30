@@ -1,13 +1,13 @@
-import {topRatedUrl} from '../constants/Constants';
-
-
-
-export default async function TopRated() {
+//Top Rated
+export default async function TopRatedMovie(topRatedMovie) {
     try {
-        let response = await fetch(topRatedUrl);
+        let response = await fetch(topRatedMovie);
         response = await response.json()
         return response;
     } catch (error) {
-        console.log(error);
+        console.log('Something went wrong:   ', error);
     }
+
 }
+
+
