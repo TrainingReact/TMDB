@@ -4,6 +4,7 @@ import './index.css';
 import './genericComponents/menucss.css';
 import './responsive/responsive.css';
 import './genericComponents/slider.css';
+import './genericComponents/popup.css';
 import App from './App';
 
 import reportWebVitals from './reportWebVitals';
