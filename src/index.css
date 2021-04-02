@@ -1,24 +1,34 @@
+/* Color Legend:
+Light grey: #D7D7D7
+Dark grey: #909090
+Text: #FFFFFF #000000
+hr and logo:  #b2ffff
+*/
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-
-h1{
+h1 {
   margin-left: 4%;
-  margin-top:3%;
+  margin-top: 3%;
 }
 
-hr{
-  margin-top:-25px;
+hr {
+  margin-top: -20px;
   margin-bottom: 3%;
+  color: #b2ffff;
+  border-color: #b2ffff;
+  background-color: #b2ffff;
+
 }

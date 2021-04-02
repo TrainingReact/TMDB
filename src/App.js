@@ -1,13 +1,9 @@
-import './App.css';
-import React from 'react';
-import PageStructure from './genericComponents/Components';
-
+import "./App.css";
+import React from "react";
+import PageStructure from "./genericComponents/Components";
 
 function App() {
-
-  return (
-      <PageStructure />
-  );
+  return <PageStructure />;
 }
 
 export default App;
