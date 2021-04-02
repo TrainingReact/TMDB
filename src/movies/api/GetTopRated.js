@@ -1,5 +1,5 @@
 //Top Rated
-export default async function TopRatedMovie(topRatedMovie) {
+export default async function FetchMovie(topRatedMovie) {
   try {
     let response = await fetch(topRatedMovie);
     response = await response.json();
