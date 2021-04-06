@@ -28,35 +28,35 @@ export default function Film() {
         const urlConstructor = searcFilmUrl + el.id;
         FetchMovie(urlConstructor).then((res2) => {
           resultAllMovie.push(CategorizedGenre(res2.results, el.name));
-          setAllMovie(resultAllMovie);
         });
       });
     });
+    console.log(resultAllMovie);
+    setAllMovie(resultAllMovie);
+    console.log(allMovie);
   }, []);
 
   return (
     <main>
       <h1>Get Popular</h1>
       <hr></hr>
-      <ActionsButtons data={respPopularMovie} />
+      <ActionsButtons key="100" data={respPopularMovie} />
+      <EachFilmForCategory item={allMovie} />
     </main>
   );
 }
 
 //this function is commented out because could be edit on tuesday
 //      <EachFilmForCategory item={allMovie} />
-/* export function EachFilmForCategory(props) {
-  props.item.map(function (el) {
-    console.log(el);
-  });
+export function EachFilmForCategory(props) {
   return (
     <div>
       {props.item.map(function (el, index) {
-        <ActionsButtons key={index} data={el} />;
+        <ActionsButtons key={index} data={el.item} />;
       })}
     </div>
   );
-} */
+}
 
 //the function return film categorized by genre
 export function CategorizedGenre(data, nameGenre) {

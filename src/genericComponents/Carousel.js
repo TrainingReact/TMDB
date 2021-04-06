@@ -3,9 +3,8 @@ import ReactDOM from "react-dom";
 
 export function Item(props) {
   const { isShowing, toggle } = useModal();
-  const refItem = useRef(null);
   return (
-    <div className="item" ref={refItem} onClick={toggle}>
+    <div className="item" onClick={toggle}>
       <Modal isShowing={isShowing} hide={toggle} data={props} />
       <h3 className="centerTxt">{props.item.title}</h3>
       <img
@@ -20,7 +19,7 @@ export function Item(props) {
 }
 
 //portal usefull for the creation of popup and personalized hook (useModal Hook)
-const Modal = ({ isShowing, hide, data }) =>
+const Modal = ({ isShowing, data }) =>
   isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>
