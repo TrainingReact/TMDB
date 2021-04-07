@@ -1,3 +1,5 @@
+import React, { useEffect } from "react";
+
 //Take movie and add genre
 export default async function getData(data, genres) {
   try {
@@ -66,4 +68,21 @@ export function sizeObj(obj) {
     if (obj.hasOwnProperty(key)) size++;
   }
   return size;
+}
+
+export function SetDataToState(props) {
+  const url = props.movie;
+  const genres = props.genre;
+  const setState = props.f;
+  useEffect(() => {
+    const result = getData(url, genres);
+    result
+      .then((elem) => {
+        setState(elem);
+      })
+      .catch((error) => {
+        console.log("Something went wrong:   ", error);
+      });
+  }, [url, genres, setState]);
+  return "";
 }
