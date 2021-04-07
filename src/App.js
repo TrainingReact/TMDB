@@ -1,9 +1,15 @@
 import "./App.css";
 import React from "react";
-import PageStructure from "./genericComponents/Components";
+import UpperHeader from "./genericComponents/Header";
+import Menu from "./genericComponents/Menu";
 
 function App() {
-  return <PageStructure />;
+  return (
+    <div>
+      <UpperHeader />
+      <Menu />
+    </div>
+  );
 }
 
 export default App;
