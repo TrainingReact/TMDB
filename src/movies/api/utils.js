@@ -91,8 +91,9 @@ export function sizeObj(obj) {
   return size;
 }
 
-//SetDataToState component take in input data and return a setState
-//params: url(string), genres(string), setState(function)
+//useDataToState personalized hook. It takes in input urls and it returns data
+//params: urlList(object)
+//returns: data(array)
 export function useDataToState(urlList) {
   const movie = urlList.movie;
   const genre = urlList.genre;
@@ -152,11 +153,13 @@ export function ManageDynamicUrlForCarousel(props) {
   return <span>{items}</span>;
 }
 
-//the component allows to construct an urls array
-export function ConstructArrayForDynamicUrls(props) {
-  const setState = props.f;
-  const genreUrl = props.genreUrl;
-  const searchFilmUrl = props.searchFilmUrl;
+//useConstructArrayForDynamicUrls personalized hook. It takes in input urls and it returns an url array
+//params: urlList(object)
+//returns: data(array)
+export function useConstructArrayForDynamicUrls(urlList) {
+  const genreUrl = urlList.genre;
+  const searchFilmUrl = urlList.searchFilm;
+  const [data, setData] = useState([]);
 
   let urlArray = [];
   useEffect(() => {
@@ -165,8 +168,8 @@ export function ConstructArrayForDynamicUrls(props) {
       for (let i = 0; i < sizeObj(resp.genres); i++) {
         urlArray.push({ url: searchFilmUrl + resp.genres[i].id, name: resp.genres[i].name });
       }
-      setState(urlArray);
+      setData(urlArray);
     });
-  }, [genreUrl, searchFilmUrl, setState]);
-  return "";
+  }, [genreUrl, searchFilmUrl, setData]);
+  return data;
 }
