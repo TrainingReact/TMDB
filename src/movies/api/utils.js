@@ -93,21 +93,22 @@ export function sizeObj(obj) {
 
 //SetDataToState component take in input data and return a setState
 //params: url(string), genres(string), setState(function)
-export function SetDataToState(props) {
-  const url = props.movie;
-  const genres = props.genre;
-  const setState = props.f;
+export function useDataToState(urlList) {
+  const movie = urlList.movie;
+  const genre = urlList.genre;
+  const [data, setData] = useState([]);
+
   useEffect(() => {
-    const result = getData(url, genres);
+    const result = getData(movie, genre);
     result
       .then((elem) => {
-        setState(elem);
+        setData(elem);
       })
       .catch((error) => {
         console.log("Something went wrong:   ", error);
       });
-  }, [url, genres, setState]);
-  return "";
+  }, [movie, genre, setData]);
+  return data;
 }
 
 export function SetDataCategoryForCarousel(props) {
