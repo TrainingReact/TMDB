@@ -46,10 +46,10 @@ export default function Menu() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/film">
+        <Route exact path="/Film">
           <Film />
         </Route>
-        <Route exact path="/serieTV">
+        <Route exact path="/SerieTV">
           <Serietv />
         </Route>
       </Switch>

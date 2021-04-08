@@ -1,6 +1,10 @@
 import React, { useEffect, useCallback, useState } from "react";
 import ReactDOM from "react-dom";
 
+//Item component manages the item carousel
+//params: filmTitle(string), posterPath(string)
+//components: Modal
+//personalized Hook: useModal
 export function Item(props) {
   const { isShowing, toggle } = useModal();
   const filmTitle = props.item.title;
@@ -20,6 +24,10 @@ export function Item(props) {
   );
 }
 
+//Modal component is the popup
+//params: voteAverage(float), close(function useModal), backdropPath(string), filmTitle(string), originalTitle(string),
+//genres(string), description(string), date(date)
+//components: ConvertVoteAverageInStars
 export function Modal(props) {
   const voteAverage = props.data.item.vote_average;
   const close = props.hide;
@@ -80,7 +88,9 @@ export function Modal(props) {
       )
     : null;
 }
-//the function transforms the vote in tenths to a maximum of 5 stars
+
+//ConvertVoteAverageInStars component transforms the vote in tenths to a maximum of 5 stars
+//params: averageVote(float)
 export function ConvertVoteAverageInStars(props) {
   const averageVote = props.value;
   const starNumber = parseInt(averageVote / 2);
@@ -96,7 +106,8 @@ export function ConvertVoteAverageInStars(props) {
   return <ul className="rateContainer">{starList}</ul>;
 }
 
-//personalized hook creation
+//useModal is a personalized hook for popup details
+//components: Item
 const useModal = () => {
   const [isShowing, setIsShowing] = useState(false);
 
@@ -109,33 +120,40 @@ const useModal = () => {
   };
 };
 
+//Carousel component take the carousel component and manage the previous carousel button and the next carousel button
+//params: items(array)
+//components: Item
 export function Carousel(props) {
+  const items = props.items;
   return (
     <div className="carousel">
-      {props.items.map((item, index) => (
+      {items.map((item, index) => (
         <Item item={item} key={index} />
       ))}
     </div>
   );
 }
 
+//ActionsButtons component take the carousel component and manage the previous carousel button and the next carousel button
+//params: data(array)
+//components: Carousel
 export default function ActionsButtons(props) {
+  const data = props.data;
   const SKIP = 3;
   const LIMIT_PAGE = 5;
-  const [items, setItems] = useState(props.data);
-
+  const [items, setItems] = useState(data);
   useEffect(() => {
-    setItems(props.data);
-  }, [props.data]);
+    setItems(data);
+  }, [data]);
 
   const prev = useCallback(() => {
     const currentIndex = items[0].index - SKIP;
     if (currentIndex >= 0) {
-      const cloneData = [...props.data];
+      const cloneData = [...data];
       const prevItems = cloneData.splice(currentIndex, SKIP);
       setItems([...prevItems, ...items]);
     }
-  }, [props.data, items]);
+  }, [data, items]);
 
   const next = useCallback(() => {
     if (items.length > LIMIT_PAGE) {
