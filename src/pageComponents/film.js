@@ -1,5 +1,5 @@
 import { popularUrl, genreUrl, searchFilmUrl } from "../movies/constants/constants";
-import React, { useState } from "react";
+import React from "react";
 import { ManageDynamicUrlForCarousel, useDataToState, useConstructArrayForDynamicUrls } from "../movies/api/utils";
 import ActionsButtons from "../genericComponents/Carousel";
 

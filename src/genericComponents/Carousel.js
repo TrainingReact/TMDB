@@ -2,14 +2,18 @@ import React, { useEffect, useCallback, useState } from "react";
 import ReactDOM from "react-dom";
 
 //Item component manages the item carousel
-//params: filmTitle(string), posterPath(string)
+//params: props: filmTitle(string), posterPath(string)
 //components: Modal
 //personalized Hook: useModal
 export function Item(props) {
   const { isShowing, toggle } = useModal();
   const filmTitle = props.item.title;
   const posterPath = props.item.poster_path;
-  return (
+  let checkIfExists = false;
+  console.log(posterPath);
+  checkIfExists = true ? posterPath : (checkIfExists = false);
+
+  return checkIfExists ? (
     <div className="item" onClick={toggle}>
       <Modal isShowing={isShowing} hide={toggle} data={props} />
       <h3 className="centerTxt">{filmTitle}</h3>
@@ -21,18 +25,34 @@ export function Item(props) {
         aria-labelledby={"locandina del film " + filmTitle}
       />
     </div>
+  ) : (
+    <div className="item" onClick={toggle}>
+      <Modal isShowing={isShowing} hide={toggle} data={props} />
+      <h3 className="centerTxt">{filmTitle}</h3>
+      <img
+        className="posterImg"
+        src={"https://www.kirkstall.com/wp-content/uploads/2020/04/image-not-available-png-8.png"}
+        alt={"locandina del film non disponibile"}
+        title={"locandina del film non disponibile"}
+        aria-labelledby={"locandina del film non disponibile"}
+      />
+    </div>
   );
 }
 
 //Modal component is the popup
-//params: voteAverage(float), close(function useModal), backdropPath(string), filmTitle(string), originalTitle(string),
+//params: props: voteAverage(float), close(function useModal), backdropPath(string), filmTitle(string), originalTitle(string),
 //genres(string), description(string), date(date)
 //components: ConvertVoteAverageInStars
 export function Modal(props) {
   const voteAverage = props.data.item.vote_average;
   const close = props.hide;
   const backdropPath =
-    props.data.item.backdrop_path !== null ? "https://image.tmdb.org/t/p/w500/" + props.data.item.backdrop_path : "https://image.tmdb.org/t/p/w500/" + props.data.item.poster_path;
+    props.data.item.backdrop_path !== null
+      ? "https://image.tmdb.org/t/p/w500/" + props.data.item.backdrop_path
+      : props.data.item.poster_path !== null
+      ? "https://image.tmdb.org/t/p/w500/" + props.data.item.poster_path
+      : "https://www.sarras-shop.com/out/pictures/master/product/1/no-image-available-icon.jpg";
   const filmTitle = props.data.item.title !== undefined && props.data.item.title !== null ? props.data.item.title : props.data.item.name;
   const originalTitle = props.data.item.original_name;
   const genres = props.data.item.genres;
@@ -90,7 +110,7 @@ export function Modal(props) {
 }
 
 //ConvertVoteAverageInStars component transforms the vote in tenths to a maximum of 5 stars
-//params: averageVote(float)
+//params: props: averageVote(float)
 export function ConvertVoteAverageInStars(props) {
   const averageVote = props.value;
   const starNumber = parseInt(averageVote / 2);
@@ -121,7 +141,7 @@ const useModal = () => {
 };
 
 //Carousel component take the carousel component and manage the previous carousel button and the next carousel button
-//params: items(array)
+//params: props: items(array)
 //components: Item
 export function Carousel(props) {
   const items = props.items;
@@ -135,7 +155,7 @@ export function Carousel(props) {
 }
 
 //ActionsButtons component take the carousel component and manage the previous carousel button and the next carousel button
-//params: data(array)
+//params: props: data(array)
 //components: Carousel
 export default function ActionsButtons(props) {
   const data = props.data;

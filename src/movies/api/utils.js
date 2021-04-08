@@ -112,13 +112,16 @@ export function useDataToState(urlList) {
   return data;
 }
 
+//SetDataCategoryForCarousel component allows to manage the carousel view in case of different urls
+//params: props: url(string), genres(string), key(integer), title(string)
+//components: ActionsButtons
 export function SetDataCategoryForCarousel(props) {
   const url = props.movie;
   const genres = props.genre;
   const key = props.ident;
   const title = props.title;
   const [dataState, setDataState] = useState([]);
-
+  let bool = false;
   useEffect(() => {
     const result = getData(url, genres);
     result
@@ -130,16 +133,20 @@ export function SetDataCategoryForCarousel(props) {
       });
   }, [url, genres, key]);
 
-  return (
+  bool = true ? dataState && dataState.length : (bool = false);
+
+  return bool ? (
     <span>
       <h1>{title}</h1>
       <hr></hr>
       <ActionsButtons data={dataState} />
     </span>
-  );
+  ) : null;
 }
 
-//the component manages an urls array to allow to show data in carousel
+//ManageDynamicUrlForCarousel component manages an urls array to allow to show data in carousel
+//params: props: arrayUrls(array), genres(string)
+//components: SetDataCategoryForCarousel
 export function ManageDynamicUrlForCarousel(props) {
   const arrayUrls = props.arrayUrl;
   const genreUrl = props.genreUrl;
