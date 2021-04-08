@@ -1,8 +1,8 @@
 /* Modal Header */
 .modal-header {
   padding: 2px 16px;
-  background-color: #909090;
-  color: white;
+  background-color: #000000;
+  color: #61dbfb;
   z-index: 90;
   align-items: center;
 }
@@ -11,12 +11,13 @@
 .modal-body {
   z-index: 90;
   width: 100%;
+  background-color: #212121;
 }
 
 /* Modal Content */
 .modal-content {
   position: relative;
-  background-color: #fefefe;
+  background-color: #212121;
   margin: auto;
   padding: 0;
   border: 1px solid #888;
@@ -55,7 +56,7 @@
 .popupBodyTop {
   display: flex;
   flex-flow: column nowrap;
-  background-color: #d7d7d7;
+  background-color: #212121;
   justify-content: flex-end;
 }
 
@@ -133,8 +134,8 @@
 .rate {
   font-size: 26px;
   list-style-type: none;
-  color: yellow;
-  text-shadow: 2px 2px 4px black;
+  color: #b6eefd;
+  text-shadow: 2px 2px 4px white;
 }
 
 .rateContainer {

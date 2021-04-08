@@ -1,6 +1,7 @@
 .menuContainer {
   justify-content: space-around;
   align-content: flex-start;
+  background-color: #000000;
 }
 
 .menuItem {
@@ -8,17 +9,17 @@
   padding: 10px;
   width: 77%;
   justify-content: center;
-  color: black;
+  color: #61dbfb;
 }
 
 .menuItem:hover {
-  border-bottom: #909090;
+  border-bottom: #61dbfb;
   border-bottom-width: 2px;
   border-left-color: transparent;
   border-right-color: transparent;
   border-top-color: transparent;
   border-style: solid;
-  color: black;
+  color: #b6eefd;
 }
 
 .menuItemVisited{
@@ -26,8 +27,8 @@
   padding: 10px;
   width: 77%;
   justify-content: center;
-  color: black;
-  border-bottom: #909090;
+  color: #b6eefd;
+  border-bottom: #61dbfb;
   border-bottom-width: 2px;
   border-left-color: transparent;
   border-right-color: transparent;
@@ -36,7 +37,7 @@
 }
 
 .menuItem:focus {
-  border-bottom: #909090;
+  border-bottom: #b6eefd;
   border-bottom-width: 2px;
   border-left-color: transparent;
   border-right-color: transparent;
@@ -48,12 +49,14 @@
 .headerContainer {
   display: flex;
   flex-flow: row wrap;
+  background-color: #000000;
+  ;
 }
 
 .logo {
   justify-content: flex-start;
   height: 30px;
-  background-color: #d7d7d7;
+  background-color: #000000;
   margin-bottom: -17px;
 }
 

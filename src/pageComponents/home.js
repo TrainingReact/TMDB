@@ -8,11 +8,11 @@ export default function Home() {
   const respTopRatedTVShows = useDataToState({ movie: topRatedTVShowsUrl, genre: genreUrl });
   return (
     <main>
-      <h1>Top Rated Movie</h1>
+      <h3>Top Rated Movie</h3>
       <hr></hr>
       <ActionsButtons data={respTopRatedMovie} />
 
-      <h1>Top Rated TV Series</h1>
+      <h3>Top Rated TV Series</h3>
       <hr></hr>
       <ActionsButtons data={respTopRatedTVShows} />
     </main>

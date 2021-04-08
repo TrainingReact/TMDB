@@ -137,7 +137,7 @@ export function SetDataCategoryForCarousel(props) {
 
   return bool ? (
     <span>
-      <h1>{title}</h1>
+      <h3>{title}</h3>
       <hr></hr>
       <ActionsButtons data={dataState} />
     </span>

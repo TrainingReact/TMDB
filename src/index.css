@@ -12,6 +12,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #212121;
+  color: #61dbfb
 }
 
 code {
@@ -19,7 +21,7 @@ code {
     monospace;
 }
 
-h1 {
+h3 {
   margin-left: 4%;
   margin-top: 3%;
 }
@@ -27,8 +29,8 @@ h1 {
 hr {
   margin-top: -20px;
   margin-bottom: 3%;
-  color: #b2ffff;
-  border-color: #b2ffff;
-  background-color: #b2ffff;
+  color: #61dbfb;
+  border-color: #61dbfb;
+  background-color: #61dbfb;
 
 }

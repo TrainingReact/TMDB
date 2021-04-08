@@ -9,7 +9,7 @@ export default function Serietv() {
 
   return (
     <main>
-      <h1>Get Popular</h1>
+      <h3>Get Popular</h3>
       <hr></hr>
       <ActionsButtons data={resPopularTVS} />
       <ManageDynamicUrlForCarousel arrayUrl={urlConstructor} genreUrl={genreUrl} />

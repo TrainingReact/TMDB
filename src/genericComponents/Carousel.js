@@ -16,7 +16,7 @@ export function Item(props) {
   return checkIfExists ? (
     <div className="item" onClick={toggle}>
       <Modal isShowing={isShowing} hide={toggle} data={props} />
-      <h3 className="centerTxt">{filmTitle}</h3>
+      {/* <h3 className="centerTxt">{filmTitle}</h3> */}
       <img
         className="posterImg"
         src={"https://image.tmdb.org/t/p/w500/" + posterPath}

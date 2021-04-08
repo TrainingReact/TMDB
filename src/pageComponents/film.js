@@ -8,7 +8,7 @@ export default function Film() {
   const urlConstructor = useConstructArrayForDynamicUrls({ genre: genreUrl, searchFilm: searchFilmUrl });
   return (
     <main>
-      <h1>Get Popular</h1>
+      <h3>Get Popular</h3>
       <hr></hr>
       <ActionsButtons data={respPopularMovie} />
       <ManageDynamicUrlForCarousel arrayUrl={urlConstructor} genreUrl={genreUrl} />
