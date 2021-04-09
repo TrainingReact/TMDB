@@ -1,5 +1,4 @@
 .menuContainer {
-
   justify-content: space-around;
   align-content: flex-start;
 }
@@ -9,13 +8,12 @@
   padding: 10px;
   width: 77%;
   justify-content: center;
-  color:black;
+  color: black;
 }
 
-.menuItem:hover{
-  /*text-decoration: underline;*/
-  border-bottom: #D7D7D7;
-  border-bottom-width:3px;
+.menuItem:hover {
+  border-bottom: #909090;
+  border-bottom-width: 2px;
   border-left-color: transparent;
   border-right-color: transparent;
   border-top-color: transparent;
@@ -23,41 +21,54 @@
   color: black;
 }
 
-.menuItem:focus{
+.menuItemVisited{
+  display: flex;
+  padding: 10px;
+  width: 77%;
+  justify-content: center;
+  color: black;
   border-bottom: #909090;
-  border-bottom-width:3px;
+  border-bottom-width: 2px;
   border-left-color: transparent;
   border-right-color: transparent;
   border-top-color: transparent;
   border-style: solid;
-  color:black;
 }
 
+.menuItem:focus {
+  border-bottom: #909090;
+  border-bottom-width: 2px;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-style: solid;
+  color: black;
+}
 
 .headerContainer {
   display: flex;
   flex-flow: row wrap;
-
 }
 
 .logo {
   justify-content: flex-start;
   height: 30px;
-  background-color: rgba(211, 211, 211, 0.2);
+  background-color: #d7d7d7;
+  margin-bottom: -17px;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-.liMenu{
-list-style-type: none;
+.liMenu {
+  list-style-type: none;
 }
 
-.immagineLogo{
-  height:50px;
+.immagineLogo {
+  height: 50px;
 }
 
-
-
-
+.menuBar {
+  background-color: #d7d7d7;
+}
