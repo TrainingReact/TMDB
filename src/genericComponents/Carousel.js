@@ -10,13 +10,11 @@ export function Item(props) {
   const filmTitle = props.item.title;
   const posterPath = props.item.poster_path;
   let checkIfExists = false;
-  console.log(posterPath);
   checkIfExists = true ? posterPath : (checkIfExists = false);
 
   return checkIfExists ? (
     <div className="item" onClick={toggle}>
       <Modal isShowing={isShowing} hide={toggle} data={props} />
-      {/* <h3 className="centerTxt">{filmTitle}</h3> */}
       <img
         className="posterImg"
         src={"https://image.tmdb.org/t/p/w500/" + posterPath}
@@ -128,7 +126,7 @@ export function ConvertVoteAverageInStars(props) {
 
 //useModal is a personalized hook for popup details
 //components: Item
-const useModal = () => {
+export const useModal = () => {
   const [isShowing, setIsShowing] = useState(false);
 
   function toggle() {
@@ -186,12 +184,12 @@ export default function ActionsButtons(props) {
 
   return (
     <div className="carouselContainer">
-      <Carousel items={items} />
-
       <div className="buttons-container">
         <button className="button" data-message="Questo pulsante permette di scorrere ai film precedenti" onClick={prev}>
           <font>&#8249;</font>
         </button>
+        <Carousel items={items} />
+
         <button className="button" data-message="Questo pulsante permette di scorrere ai film successivi" onClick={next}>
           <font>&#8250;</font>
         </button>

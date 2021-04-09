@@ -1,7 +1,6 @@
 .menuContainer {
   justify-content: space-around;
   align-content: flex-start;
-  background-color: #000000;
 }
 
 .menuItem {
@@ -49,15 +48,22 @@
 .headerContainer {
   display: flex;
   flex-flow: row wrap;
-  background-color: #000000;
-  ;
+  position: relative;
+  z-index: 100;
+  background-color: rgba(0,0,0,0.5);
+  align-items: flex-end;
 }
 
 .logo {
-  justify-content: flex-start;
   height: 30px;
-  background-color: #000000;
-  margin-bottom: -17px;
+  flex-flow: row wrap;
+  margin-bottom: -1.1%;
+  display: flex;
+  align-content: flex-end;
+  justify-content: flex-end;
+  background-color: rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 100;
 }
 
 a {
@@ -73,5 +79,28 @@ a {
 }
 
 .menuBar {
-  background-color: #d7d7d7;
+ background-color: transparent;
+ z-index: 500;
+ position: relative;
+}
+
+.fooContainer{
+  height: 100px;
+  flex-flow: column nowrap;
+  justify-content: center;
+  display: flex;
+  align-content: center;
+}
+
+.fooElement{
+  align-self: center;
+  font-size: 9px;
+}
+
+.socialIcon{
+  height: 20px;
+}
+
+.socialBox{
+  margin-right: 1%;
 }

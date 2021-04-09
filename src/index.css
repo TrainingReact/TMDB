@@ -23,14 +23,19 @@ code {
 
 h3 {
   margin-left: 4%;
-  margin-top: 3%;
+  margin-top: 1%;
+  position: relative;
 }
 
 hr {
-  margin-top: -20px;
-  margin-bottom: 3%;
+  margin-top: 2px;
+  margin-bottom: 0;
   color: #61dbfb;
   border-color: #61dbfb;
   background-color: #61dbfb;
+  position: relative;
+}
 
+a{
+  color:#61dbfb
 }

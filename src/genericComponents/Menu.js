@@ -29,12 +29,12 @@ export default function Menu() {
               </Link>
             </li>
             <li className="liMenu">
-              <Link className={styleClass(film)} onClick={() => visited(film)} to="/film" name={film}>
+              <Link className={styleClass(film)} onClick={() => visited(film)} to="/Film" name={film}>
                 Film
               </Link>
             </li>
             <li className="liMenu">
-              <Link className={styleClass(serietv)} onClick={() => visited(serietv)} to="/serieTV" name={serietv}>
+              <Link className={styleClass(serietv)} onClick={() => visited(serietv)} to="/SerieTV" name={serietv}>
                 Serie TV
               </Link>
             </li>
