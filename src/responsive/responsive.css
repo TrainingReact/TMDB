@@ -36,7 +36,7 @@
   }
 
   .menuBar {
-    background-color: transparent;
+    background-color: rgba(0,0,0,0.5);
     z-index: 500;
     position: relative;
     margin-top: -16px;
@@ -154,7 +154,7 @@
   }
 
   .menuBar {
-    background-color: transparent;
+    background-color: rgba(0,0,0,0.6);
     z-index: 500;
     position: relative;
     margin-top: -16px;
@@ -287,7 +287,7 @@
     font-size: 14px;
   }
   .menuBar {
-    background-color: transparent;
+    background-color: rgba(0,0,0,0.6);
     z-index: 500;
     position: relative;
     margin-top: 17px;
@@ -362,6 +362,7 @@
 
   .categoryContainer {
     position: relative;
+    margin-top: -129px;
     background-color: #1b1b1b;
   }
 
@@ -387,7 +388,7 @@
     font-size: 14px;
   }
   .menuBar {
-    background-color: transparent;
+    background-color: rgba(0,0,0,0.6);
     z-index: 500;
     position: relative;
     margin-top: 21px;
@@ -463,7 +464,7 @@
   }
 
   .titleCategory {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 2px;
   }
 
@@ -477,7 +478,7 @@
   }
 
   .menuBar {
-    background-color: transparent;
+    background-color: rgba(0,0,0,0.6);
     z-index: 500;
     position: relative;
     margin-top: 21px;
@@ -519,7 +520,7 @@
   }
 
   .menuBar {
-    background-color: transparent;
+    background-color: rgba(0,0,0,0.6);
     z-index: 500;
     position: relative;
     margin-top: -16px;
@@ -648,7 +649,7 @@
     font-size: 14px;
   }
   .menuBar {
-    background-color: transparent;
+    background-color: rgba(0,0,0,0.5);
     z-index: 500;
     position: relative;
     margin-top: -16px;

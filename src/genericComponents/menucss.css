@@ -61,7 +61,7 @@
   display: flex;
   align-content: flex-end;
   justify-content: flex-end;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.8);
   position: relative;
   z-index: 100;
 }

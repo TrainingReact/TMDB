@@ -127,19 +127,16 @@ export function useDataToState(urlList) {
 }
 
 /**
- * SetDataCategoryForCarousel component allows to manage the carousel view in case of different urls
+ * DataCategoryForCarousel component allows to manage the carousel view in case of different urls
  * @param {url(string), genres(string), key(integer), title(string)} props
  * @param {string} props.movie - movie url
  * @param {string} props.genre - genre url
  * @param {string} props.title - movie title
  * @returns
  */
-export function SetDataCategoryForCarousel(props) {
-  const url = props.movie;
-  const genres = props.genre;
-  const title = props.title;
+export function DataCategoryForCarousel(props) {
+  const { movie: url, genre: genres, title: title } = props;
   const [dataState, setDataState] = useState([]);
-  let bool = false;
   useEffect(() => {
     const result = getData(url, genres);
     result
@@ -150,8 +147,7 @@ export function SetDataCategoryForCarousel(props) {
         console.log("Something went wrong:   ", error);
       });
   }, [url, genres]);
-  bool = true ? dataState && dataState.length : (bool = false);
-  return bool ? (
+  return !!dataState.length ? (
     <span>
       <div className="titleCategory">
         <h3>{title}</h3>
@@ -169,12 +165,11 @@ export function SetDataCategoryForCarousel(props) {
  * @returns
  */
 export function ManageDynamicUrlForCarousel(props) {
-  const arrayUrls = props.arrayUrl;
-  const genreUrl = props.genreUrl;
+  const { arrayUrl: arrayUrls, genreUrl: genreUrl } = props;
   const items = Object.entries(arrayUrls).map(([key, value]) => {
     return (
       <span key={key}>
-        <SetDataCategoryForCarousel ident={key} movie={value.url} genre={genreUrl} title={value.name} />
+        <DataCategoryForCarousel ident={key} movie={value.url} genre={genreUrl} title={value.name} />
       </span>
     );
   });

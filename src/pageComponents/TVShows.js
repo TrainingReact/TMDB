@@ -10,7 +10,6 @@ import ActionsButtons from "../genericComponents/Carousel";
 export default function TVShows() {
   const resPopularTVS = useDataToState({ movie: getPopularTVSUrl, genre: genreUrl });
   const urlConstructor = useConstructArrayForDynamicUrls({ genre: genreUrl, searchFilm: searchTVSUrl });
-
   return (
     <main>
       <h1>TV Shows</h1>

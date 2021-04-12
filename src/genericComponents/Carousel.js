@@ -7,15 +7,13 @@ import ReactDOM from "react-dom";
  * @returns
  */
 export function Item(props) {
+  const { title: filmTitle, poster_path: posterPath } = props.item;
   const { isShowing, toggle } = useModal();
-  const filmTitle = props.item.title;
-  const posterPath = props.item.poster_path;
-  const data = props.item;
   let checkIfExists = false;
   checkIfExists = true ? posterPath : (checkIfExists = false);
   return checkIfExists ? (
     <div className="item" onClick={toggle}>
-      <Modal isShowing={isShowing} hide={toggle} data={data} />
+      <Modal isShowing={isShowing} hide={toggle} data={props.item} />
       <img
         className="posterImg"
         src={"https://image.tmdb.org/t/p/w500/" + posterPath}
@@ -26,7 +24,7 @@ export function Item(props) {
     </div>
   ) : (
     <div className="item" onClick={toggle}>
-      <Modal isShowing={isShowing} hide={toggle} data={data} />
+      <Modal isShowing={isShowing} hide={toggle} data={props.item} />
       <h3 className="centerTxt">{filmTitle}</h3>
       <img
         className="posterImg"
@@ -45,7 +43,7 @@ export function Item(props) {
  * @returns
  */
 export function Modal(props) {
-  const voteAverage = props.data.vote_average;
+  const { vote_average: voteAverage, genres: genres, overview: description } = props.data;
   const close = props.hide;
   const backdropPath =
     props.data.backdrop_path !== null
@@ -55,8 +53,6 @@ export function Modal(props) {
       : "https://www.sarras-shop.com/out/pictures/master/product/1/no-image-available-icon.jpg";
   const filmTitle = props.data.title !== undefined && props.data.title !== null ? props.data.title : props.data.name;
   const originalTitle = props.data.original_name !== undefined ? props.data.original_name : filmTitle;
-  const genres = props.data.genres;
-  const description = props.data.overview;
   const date = props.data.first_air_date !== null && props.data.first_air_date !== undefined ? props.data.first_air_date : props.data.release_date;
   //portal usefull for the creation of popup and personalized hook (useModal Hook)
   return props.isShowing
