@@ -1,20 +1,21 @@
 import React, { useEffect, useCallback, useState } from "react";
 import ReactDOM from "react-dom";
 
-//Item component manages the item carousel
-//params: props: filmTitle(string), posterPath(string)
-//components: Modal
-//personalized Hook: useModal
+/**
+ *Item component manages the item carousel
+ * @param {object} props.item - the object contains single movie data
+ * @returns
+ */
 export function Item(props) {
   const { isShowing, toggle } = useModal();
   const filmTitle = props.item.title;
   const posterPath = props.item.poster_path;
+  const data = props.item;
   let checkIfExists = false;
   checkIfExists = true ? posterPath : (checkIfExists = false);
-
   return checkIfExists ? (
     <div className="item" onClick={toggle}>
-      <Modal isShowing={isShowing} hide={toggle} data={props} />
+      <Modal isShowing={isShowing} hide={toggle} data={data} />
       <img
         className="posterImg"
         src={"https://image.tmdb.org/t/p/w500/" + posterPath}
@@ -25,7 +26,7 @@ export function Item(props) {
     </div>
   ) : (
     <div className="item" onClick={toggle}>
-      <Modal isShowing={isShowing} hide={toggle} data={props} />
+      <Modal isShowing={isShowing} hide={toggle} data={data} />
       <h3 className="centerTxt">{filmTitle}</h3>
       <img
         className="posterImg"
@@ -38,24 +39,25 @@ export function Item(props) {
   );
 }
 
-//Modal component is the popup
-//params: props: voteAverage(float), close(function useModal), backdropPath(string), filmTitle(string), originalTitle(string),
-//genres(string), description(string), date(date)
-//components: ConvertVoteAverageInStars
+/**
+ * Modal component is the popup that contains movie details
+ * @param {object} props.data - the object contains single movie data
+ * @returns
+ */
 export function Modal(props) {
-  const voteAverage = props.data.item.vote_average;
+  const voteAverage = props.data.vote_average;
   const close = props.hide;
   const backdropPath =
-    props.data.item.backdrop_path !== null
-      ? "https://image.tmdb.org/t/p/w500/" + props.data.item.backdrop_path
-      : props.data.item.poster_path !== null
-      ? "https://image.tmdb.org/t/p/w500/" + props.data.item.poster_path
+    props.data.backdrop_path !== null
+      ? "https://image.tmdb.org/t/p/w500/" + props.data.backdrop_path
+      : props.data.poster_path !== null
+      ? "https://image.tmdb.org/t/p/w500/" + props.data.poster_path
       : "https://www.sarras-shop.com/out/pictures/master/product/1/no-image-available-icon.jpg";
-  const filmTitle = props.data.item.title !== undefined && props.data.item.title !== null ? props.data.item.title : props.data.item.name;
-  const originalTitle = props.data.item.original_name;
-  const genres = props.data.item.genres;
-  const description = props.data.item.overview;
-  const date = props.data.item.first_air_date !== null && props.data.item.first_air_date !== undefined ? props.data.item.first_air_date : props.data.item.release_date;
+  const filmTitle = props.data.title !== undefined && props.data.title !== null ? props.data.title : props.data.name;
+  const originalTitle = props.data.original_name !== undefined ? props.data.original_name : filmTitle;
+  const genres = props.data.genres;
+  const description = props.data.overview;
+  const date = props.data.first_air_date !== null && props.data.first_air_date !== undefined ? props.data.first_air_date : props.data.release_date;
   //portal usefull for the creation of popup and personalized hook (useModal Hook)
   return props.isShowing
     ? ReactDOM.createPortal(
@@ -107,8 +109,11 @@ export function Modal(props) {
     : null;
 }
 
-//ConvertVoteAverageInStars component transforms the vote in tenths to a maximum of 5 stars
-//params: props: averageVote(float)
+/**
+ * ConvertVoteAverageInStars component transforms the vote in tenths to a maximum of 5 stars
+ * @param {float} props.value - movie vote in tenths
+ * @returns
+ */
 export function ConvertVoteAverageInStars(props) {
   const averageVote = props.value;
   const starNumber = parseInt(averageVote / 2);
@@ -124,11 +129,12 @@ export function ConvertVoteAverageInStars(props) {
   return <ul className="rateContainer">{starList}</ul>;
 }
 
-//useModal is a personalized hook for popup details
-//components: Item
+/**
+ * useModal is a personalized hook for popup details
+ * @returns
+ */
 export const useModal = () => {
   const [isShowing, setIsShowing] = useState(false);
-
   function toggle() {
     setIsShowing(!isShowing);
   }
@@ -138,9 +144,11 @@ export const useModal = () => {
   };
 };
 
-//Carousel component take the carousel component and manage the previous carousel button and the next carousel button
-//params: props: items(array)
-//components: Item
+/**
+ * Carousel component take the carousel component and manage the previous carousel button and the next carousel button
+ * @param {object} props.items
+ * @returns
+ */
 export function Carousel(props) {
   const items = props.items;
   return (
@@ -152,9 +160,11 @@ export function Carousel(props) {
   );
 }
 
-//ActionsButtons component take the carousel component and manage the previous carousel button and the next carousel button
-//params: props: data(array)
-//components: Carousel
+/**
+ * ActionsButtons component take the carousel component and manage the previous carousel button and the next carousel button
+ * @param {object} props.data
+ * @returns
+ */
 export default function ActionsButtons(props) {
   const data = props.data;
   const SKIP = 3;

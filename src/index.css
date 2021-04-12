@@ -1,8 +1,8 @@
 /* Color Legend:
-Light grey: #D7D7D7
-Dark grey: #909090
-Text: #FFFFFF #000000
-hr and logo:  #b2ffff
+React Logo Color: #61DBFB
+React Logo Color Light: #B6EEFD
+Grey: #212121
+      rgba(0,0,0,0.X);
 */
 
 body {
@@ -38,4 +38,8 @@ hr {
 
 a{
   color:#61dbfb
+}
+
+h1{
+  text-align: center;
 }

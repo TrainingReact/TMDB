@@ -1,4 +1,7 @@
-//header bar elements component (now it is empty but you could use it to add social icons)
+/**
+ * Footer
+ * @returns
+ */
 export default function Footer() {
   return (
     <div className="fooContainer">

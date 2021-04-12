@@ -1,7 +1,7 @@
 /* Modal Header */
 .modal-header {
   padding: 2px 16px;
-  background-color: #000000;
+  background-color: rgba(0,0,0,0.5);
   color: #61dbfb;
   z-index: 90;
   align-items: center;
@@ -29,14 +29,13 @@
 }
 
 .close {
-  color: white;
-  font-size: 28px;
+  color: #61dbfb;
   font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #b6eefd;
   text-decoration: none;
   cursor: pointer;
 }
@@ -71,7 +70,6 @@
 }
 
 .moreDetails {
-  font-size: 14px;
   margin: 0px;
   position: relative;
   margin-right: 4%;
@@ -123,7 +121,6 @@
 .description {
   align-self: end;
   font-weight: bold;
-  font-size: 14px;
 }
 
 .descriptionDetail {
@@ -132,10 +129,9 @@
 }
 
 .rate {
-  font-size: 26px;
   list-style-type: none;
-  color: #b6eefd;
-  text-shadow: 2px 2px 4px white;
+  color: yellow;
+  text-shadow: 2px 2px 4px red;
 }
 
 .rateContainer {

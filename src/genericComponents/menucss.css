@@ -78,11 +78,6 @@ a {
   height: 50px;
 }
 
-.menuBar {
- background-color: transparent;
- z-index: 500;
- position: relative;
-}
 
 .fooContainer{
   height: 100px;
@@ -90,6 +85,8 @@ a {
   justify-content: center;
   display: flex;
   align-content: center;
+  position: relative;
+  background-color:rgba(0,0,0,0.8);
 }
 
 .fooElement{

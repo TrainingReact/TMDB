@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import ActionsButtons from "../../genericComponents/Carousel";
 
-//getData function take data and add genre
-//params: data(string), genres(string)
-//returns: array
+/**
+ * getData function take data and add genre
+ * @async
+ * @param {string} data
+ * @param {string} genres
+ * @returns {array}
+ */
 export default async function getData(data, genres) {
   try {
     let movieData = await fetch(data);
@@ -21,9 +25,12 @@ export default async function getData(data, genres) {
   }
 }
 
-//getSingleData function take data from a given url
-//params: data(string)
-//returns: object
+/**
+ * getSingleData function take data from a given url
+ * @async
+ * @param {string} data
+ * @returns {object}
+ */
 export async function getSingleData(data) {
   try {
     let movieData = await fetch(data);
@@ -34,9 +41,11 @@ export async function getSingleData(data) {
   }
 }
 
-//dataSettingForCarousel function adds index for carousel (see ActionsButtons in GenericComponent for more details)
-//params: data(array)
-//returns: object
+/**
+ * dataSettingForCarousel function adds index for carousel (see ActionsButtons in GenericComponent for more details)
+ * @param {array} data
+ * @returns {object}
+ */
 export function dataSettingForCarousel(data) {
   let arrayModifiedForCarousel = data.map((elem) => {
     return {
@@ -47,9 +56,11 @@ export function dataSettingForCarousel(data) {
   return arrayModifiedForCarousel;
 }
 
-//joinGenreinData function allows to join name genre with id genre data film
-//params: data(object)
-//returns: object
+/**
+ * joinGenreinData function allows to join name genre with id genre data film
+ * @param {object} data
+ * @returns {object}
+ */
 export function joinGenreinData(data) {
   let genreResponse = Object.values(data.genre);
   let genreArrayTrasform = [];
@@ -79,9 +90,11 @@ export function joinGenreinData(data) {
   return takeResults;
 }
 
-//sizeObj function is necessary to know the number of objects in movie's genres_id array dimension
-//params: obj(object)
-//returns: integer
+/**
+ * sizeObj function is necessary to know the number of objects in movie's genres_id array dimension
+ * @param {object} obj
+ * @returns integer
+ */
 export function sizeObj(obj) {
   var size = 0,
     key;
@@ -91,14 +104,15 @@ export function sizeObj(obj) {
   return size;
 }
 
-//useDataToState personalized hook. It takes in input urls and it returns data
-//params: urlList(object)
-//returns: data(array)
+/**
+ * useDataToState personalized hook. It takes in input urls and it returns data
+ * @param {object} urlList
+ * @returns {array}
+ */
 export function useDataToState(urlList) {
   const movie = urlList.movie;
   const genre = urlList.genre;
   const [data, setData] = useState([]);
-
   useEffect(() => {
     const result = getData(movie, genre);
     result
@@ -108,17 +122,21 @@ export function useDataToState(urlList) {
       .catch((error) => {
         console.log("Something went wrong:   ", error);
       });
-  }, [movie, genre, setData]);
+  }, [genre, movie]);
   return data;
 }
 
-//SetDataCategoryForCarousel component allows to manage the carousel view in case of different urls
-//params: props: url(string), genres(string), key(integer), title(string)
-//components: ActionsButtons
+/**
+ * SetDataCategoryForCarousel component allows to manage the carousel view in case of different urls
+ * @param {url(string), genres(string), key(integer), title(string)} props
+ * @param {string} props.movie - movie url
+ * @param {string} props.genre - genre url
+ * @param {string} props.title - movie title
+ * @returns
+ */
 export function SetDataCategoryForCarousel(props) {
   const url = props.movie;
   const genres = props.genre;
-  const key = props.ident;
   const title = props.title;
   const [dataState, setDataState] = useState([]);
   let bool = false;
@@ -131,22 +149,25 @@ export function SetDataCategoryForCarousel(props) {
       .catch((error) => {
         console.log("Something went wrong:   ", error);
       });
-  }, [url, genres, key]);
-
+  }, [url, genres]);
   bool = true ? dataState && dataState.length : (bool = false);
-
   return bool ? (
     <span>
-      <h3>{title}</h3>
+      <div className="titleCategory">
+        <h3>{title}</h3>
+      </div>
       <hr></hr>
       <ActionsButtons data={dataState} />
     </span>
   ) : null;
 }
 
-//ManageDynamicUrlForCarousel component manages an urls array to allow to show data in carousel
-//params: props: arrayUrls(array), genres(string)
-//components: SetDataCategoryForCarousel
+/**
+ * ManageDynamicUrlForCarousel component manages an urls array to allow to show data in carousel
+ * @param {array} props.arrayUrl - a collection of urls in which every url returns movie of a certain genre
+ * @param {string} props.genreUrl - genre url
+ * @returns
+ */
 export function ManageDynamicUrlForCarousel(props) {
   const arrayUrls = props.arrayUrl;
   const genreUrl = props.genreUrl;
@@ -160,14 +181,15 @@ export function ManageDynamicUrlForCarousel(props) {
   return <span>{items}</span>;
 }
 
-//useConstructArrayForDynamicUrls personalized hook. It takes in input urls and it returns an url array
-//params: urlList(object)
-//returns: data(array)
+/**
+ * useConstructArrayForDynamicUrls personalized hook. It takes in input urls and it returns an url array
+ * @param {object} urlList
+ * @returns {array}
+ */
 export function useConstructArrayForDynamicUrls(urlList) {
   const genreUrl = urlList.genre;
   const searchFilmUrl = urlList.searchFilm;
   const [data, setData] = useState([]);
-
   let urlArray = [];
   useEffect(() => {
     const getGenre = getSingleData(genreUrl);
