@@ -8,17 +8,17 @@
   padding: 10px;
   width: 77%;
   justify-content: center;
-  color: black;
+  color: #61dbfb;
 }
 
 .menuItem:hover {
-  border-bottom: #909090;
+  border-bottom: #61dbfb;
   border-bottom-width: 2px;
   border-left-color: transparent;
   border-right-color: transparent;
   border-top-color: transparent;
   border-style: solid;
-  color: black;
+  color: #b6eefd;
 }
 
 .menuItemVisited{
@@ -26,8 +26,8 @@
   padding: 10px;
   width: 77%;
   justify-content: center;
-  color: black;
-  border-bottom: #909090;
+  color: #b6eefd;
+  border-bottom: #61dbfb;
   border-bottom-width: 2px;
   border-left-color: transparent;
   border-right-color: transparent;
@@ -36,7 +36,7 @@
 }
 
 .menuItem:focus {
-  border-bottom: #909090;
+  border-bottom: #b6eefd;
   border-bottom-width: 2px;
   border-left-color: transparent;
   border-right-color: transparent;
@@ -48,13 +48,22 @@
 .headerContainer {
   display: flex;
   flex-flow: row wrap;
+  position: relative;
+  z-index: 100;
+  background-color: rgba(0,0,0,0.5);
+  align-items: flex-end;
 }
 
 .logo {
-  justify-content: flex-start;
   height: 30px;
-  background-color: #d7d7d7;
-  margin-bottom: -17px;
+  flex-flow: row wrap;
+  margin-bottom: -1.1%;
+  display: flex;
+  align-content: flex-end;
+  justify-content: flex-end;
+  background-color: rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 100;
 }
 
 a {
@@ -69,6 +78,26 @@ a {
   height: 50px;
 }
 
-.menuBar {
-  background-color: #d7d7d7;
+
+.fooContainer{
+  height: 100px;
+  flex-flow: column nowrap;
+  justify-content: center;
+  display: flex;
+  align-content: center;
+  position: relative;
+  background-color:rgba(0,0,0,0.8);
+}
+
+.fooElement{
+  align-self: center;
+  font-size: 9px;
+}
+
+.socialIcon{
+  height: 20px;
+}
+
+.socialBox{
+  margin-right: 1%;
 }

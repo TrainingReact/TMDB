@@ -1,8 +1,8 @@
 /* Color Legend:
-Light grey: #D7D7D7
-Dark grey: #909090
-Text: #FFFFFF #000000
-hr and logo:  #b2ffff
+React Logo Color: #61DBFB
+React Logo Color Light: #B6EEFD
+Grey: #212121
+      rgba(0,0,0,0.X);
 */
 
 body {
@@ -12,6 +12,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #212121;
+  color: #61dbfb
 }
 
 code {
@@ -19,16 +21,25 @@ code {
     monospace;
 }
 
-h1 {
+h3 {
   margin-left: 4%;
-  margin-top: 3%;
+  margin-top: 1%;
+  position: relative;
 }
 
 hr {
-  margin-top: -20px;
-  margin-bottom: 3%;
-  color: #b2ffff;
-  border-color: #b2ffff;
-  background-color: #b2ffff;
+  margin-top: 2px;
+  margin-bottom: 0;
+  color: #61dbfb;
+  border-color: #61dbfb;
+  background-color: #61dbfb;
+  position: relative;
+}
 
+a{
+  color:#61dbfb
+}
+
+h1{
+  text-align: center;
 }
