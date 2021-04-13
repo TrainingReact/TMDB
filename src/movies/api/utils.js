@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ActionsButtons from "../../genericComponents/Carousel";
+import Carousel from "../../genericComponents/Carousel";
 
 /**
  * getData function take data and add genre
@@ -105,28 +105,6 @@ export function sizeObj(obj) {
 }
 
 /**
- * useDataToState personalized hook. It takes in input urls and it returns data
- * @param {object} urlList
- * @returns {array}
- */
-export function useDataToState(urlList) {
-  const movie = urlList.movie;
-  const genre = urlList.genre;
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const result = getData(movie, genre);
-    result
-      .then((elem) => {
-        setData(elem);
-      })
-      .catch((error) => {
-        console.log("Something went wrong:   ", error);
-      });
-  }, [genre, movie]);
-  return data;
-}
-
-/**
  * DataCategoryForCarousel component allows to manage the carousel view in case of different urls
  * @param {url(string), genres(string), key(integer), title(string)} props
  * @param {string} props.movie - movie url
@@ -153,7 +131,7 @@ export function DataCategoryForCarousel(props) {
         <h3>{title}</h3>
       </div>
       <hr></hr>
-      <ActionsButtons data={dataState} />
+      <Carousel data={dataState} />
     </span>
   ) : null;
 }
@@ -177,23 +155,25 @@ export function ManageDynamicUrlForCarousel(props) {
 }
 
 /**
- * useConstructArrayForDynamicUrls personalized hook. It takes in input urls and it returns an url array
- * @param {object} urlList
- * @returns {array}
+ * findMyLocation function helps to understand in which path you are when you refresh your page.
+ * It is usefull to avoid to change className from a generic page to home in case of refresh.
+ * @returns {string}
  */
-export function useConstructArrayForDynamicUrls(urlList) {
-  const genreUrl = urlList.genre;
-  const searchFilmUrl = urlList.searchFilm;
-  const [data, setData] = useState([]);
-  let urlArray = [];
-  useEffect(() => {
-    const getGenre = getSingleData(genreUrl);
-    getGenre.then((resp) => {
-      for (let i = 0; i < sizeObj(resp.genres); i++) {
-        urlArray.push({ url: searchFilmUrl + resp.genres[i].id, name: resp.genres[i].name });
-      }
-      setData(urlArray);
-    });
-  }, [genreUrl, searchFilmUrl, setData]);
-  return data;
+export function findMyLocation() {
+  let actualValue;
+  switch (window.location.pathname) {
+    case "/film":
+      actualValue = "film";
+      break;
+    case "/tvshows":
+      actualValue = "tvshows";
+      break;
+    case "/TVShows":
+      actualValue = "tvshows";
+      break;
+    default:
+      actualValue = "home";
+      break;
+  }
+  return actualValue;
 }

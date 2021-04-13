@@ -36,7 +36,6 @@
   }
 
   .menuBar {
-    background-color: rgba(0,0,0,0.5);
     z-index: 500;
     position: relative;
     margin-top: -16px;
@@ -138,6 +137,9 @@
   .carousel {
     display: flex;
   }
+  .button{
+    display: none;
+  }
 }
 
 /* Small devices (landscape phones, 576px and up)*/
@@ -154,7 +156,6 @@
   }
 
   .menuBar {
-    background-color: rgba(0,0,0,0.6);
     z-index: 500;
     position: relative;
     margin-top: -16px;
@@ -249,6 +250,10 @@
   .carousel {
     display: flex;
   }
+
+  .button{
+    display: none;
+  }
 }
 
 /* Medium devices (tablets, 768px and up)*/
@@ -287,11 +292,13 @@
     font-size: 14px;
   }
   .menuBar {
-    background-color: rgba(0,0,0,0.6);
     z-index: 500;
     position: relative;
     margin-top: 17px;
+    width: 100%;
   }
+ 
+
   .posterImg {
     height: 325px;
     z-index: 0;
@@ -388,7 +395,6 @@
     font-size: 14px;
   }
   .menuBar {
-    background-color: rgba(0,0,0,0.6);
     z-index: 500;
     position: relative;
     margin-top: 21px;
@@ -478,7 +484,6 @@
   }
 
   .menuBar {
-    background-color: rgba(0,0,0,0.6);
     z-index: 500;
     position: relative;
     margin-top: 21px;
@@ -520,7 +525,6 @@
   }
 
   .menuBar {
-    background-color: rgba(0,0,0,0.6);
     z-index: 500;
     position: relative;
     margin-top: -16px;
@@ -649,7 +653,6 @@
     font-size: 14px;
   }
   .menuBar {
-    background-color: rgba(0,0,0,0.5);
     z-index: 500;
     position: relative;
     margin-top: -16px;
@@ -732,4 +735,9 @@
     flex-flow: column nowrap;
     margin-top: -260px;
   }
+}
+
+
+.titleCategory{
+  width: 100%;
 }

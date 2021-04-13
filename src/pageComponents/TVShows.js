@@ -1,7 +1,9 @@
 import { genreUrl, getPopularTVSUrl, searchTVSUrl } from "../movies/constants/constants";
 import React from "react";
-import { ManageDynamicUrlForCarousel, useDataToState, useConstructArrayForDynamicUrls } from "../movies/api/utils";
-import ActionsButtons from "../genericComponents/Carousel";
+import { ManageDynamicUrlForCarousel } from "../movies/api/utils";
+import { useDataToState, useConstructArrayForDynamicUrls } from "../genericComponents/PersonalizedHooks";
+
+import Carousel from "../genericComponents/Carousel";
 
 /**
  * TV Shows page
@@ -18,7 +20,7 @@ export default function TVShows() {
         <h3>Get Popular</h3>
       </div>
       <hr></hr>
-      <ActionsButtons data={resPopularTVS} />
+      <Carousel data={resPopularTVS} />
       <ManageDynamicUrlForCarousel arrayUrl={urlConstructor} genreUrl={genreUrl} />
     </main>
   );
