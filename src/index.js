@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import "./genericComponents/menucss.css";
-import "./responsive/responsive.css";
-import "./genericComponents/slider.css";
-import "./genericComponents/popup.css";
+import "./css/menucss.css";
+import "./css/responsive/responsive.css";
+import "./css/slider.css";
+import "./css/popup.css";
 import App from "./App";
 
 import reportWebVitals from "./reportWebVitals";

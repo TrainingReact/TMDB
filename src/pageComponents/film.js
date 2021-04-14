@@ -1,7 +1,8 @@
 import { popularUrl, genreUrl, searchFilmUrl } from "../movies/constants/constants";
 import React from "react";
-import { ManageDynamicUrlForCarousel, useDataToState, useConstructArrayForDynamicUrls } from "../movies/api/utils";
-import ActionsButtons from "../genericComponents/Carousel";
+import { ManageDynamicUrlForCarousel } from "../movies/api/utils";
+import { useDataToState, useConstructArrayForDynamicUrls } from "../genericComponents/PersonalizedHooks";
+import Carousel from "../genericComponents/Carousel";
 
 /**
  * Film page
@@ -18,7 +19,7 @@ export default function Film() {
         <h3>Most Popular</h3>
       </div>
       <hr></hr>
-      <ActionsButtons data={respPopularMovie} />
+      <Carousel data={respPopularMovie} />
       <ManageDynamicUrlForCarousel arrayUrl={urlConstructor} genreUrl={genreUrl} />
     </main>
   );

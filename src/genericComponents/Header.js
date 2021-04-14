@@ -8,10 +8,10 @@ export default function UpperHeader() {
   return (
     <div className="logo">
       <span className="socialBox">
-        <img className="socialIcon" src={facebook} />
+        <img className="socialIcon" src={facebook} alt="logo di Facebook" title="logo di Facebook" aria-labelledby="logo Facebook" />
       </span>
       <span className="socialBox">
-        <img className="socialIcon" src={instagram} />
+        <img className="socialIcon" src={instagram} alt="logo di Instagram" title="logo di Instagram" aria-labelledby="logo Instagram" />
       </span>
     </div>
   );
